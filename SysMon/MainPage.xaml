@@ -1,0 +1,23 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:SysMon"
+             x:Class="SysMon.MainPage"
+             Title="System Monitor">
+    <ContentPage.BindingContext>
+        <vm:MonitoringViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+            <Label Text="CPU Usage:" FontSize="20" />
+            <Label Text="{Binding CpuUsage, StringFormat='{0:0.0}%'}" FontSize="24" TextColor="Blue" />
+            <Label Text="Memory Usage:" FontSize="20" />
+            <Label Text="{Binding MemoryUsage, StringFormat='{0:0.0}%'}" FontSize="24" TextColor="Green" />
+            <Label Text="Disk Usage:" FontSize="20" />
+            <Label Text="{Binding DiskUsage, StringFormat='{0:0.0}%'}" FontSize="24" TextColor="Orange" />
+            <Label Text="Network Status:" FontSize="20" />
+            <Label Text="{Binding NetworkStatus}" FontSize="24" TextColor="Red" />
+            <Button Text="Refresh Data" Command="{Binding RefreshDataCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
